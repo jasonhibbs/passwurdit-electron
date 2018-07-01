@@ -1,0 +1,53 @@
+// Controls ///////////////////////////////////////////////////////
+
+@controlspadding: (5em/9);
+
+button,
+input,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background: @controlscolor;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+  display: inline-block;
+  letter-spacing: unit((20/1000), em);
+  line-height: (30/16);
+  outline: 0;
+  padding: 0 @controlspadding;
+  transition: color 0.15s, background-color 0.15s, box-shadow 0.15s, opacity 0.15s;
+  -webkit-app-region: no-drag;
+}
+
+::placeholder {
+  color: fadeout(@textcolor, 66);
+}
+
+input,
+select {
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 1px @keycolor;
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: darken(@controlscolor, 12);
+  }
+}
+
+select {
+  cursor: pointer;
+  padding-right: (@controlspadding * 3);
+  background-repeat: no-repeat;
+  background-position: right (@controlspadding) center;
+  background-size: (@controlspadding * 1.25) auto;
+  background-image: @icon_arrow-down-dark;
+}
+
+@icon_arrow-down-dark: url(data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9ImFycm93LWRvd24tYmxhY2siIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDY0IDQwIj48ZyBvcGFjaXR5PSIwLjM1Ij48cGF0aCBkPSJNNjMuMzYsOC40N0wzMy40NywzOC4zNmEyLDIsMCwwLDEtMi45NSwwTDAuNjQsOC40N0EyLjIxLDIuMjEsMCwwLDEsMCw3LDIuMjEsMi4yMSwwLDAsMSwuNjQsNS41M0wzLjg1LDIuMzJhMi4wOSwyLjA5LDAsMCwxLDEuNDctLjY0LDIuMjEsMi4yMSwwLDAsMSwxLjQ3LjY0TDMyLDI3LjUyLDU3LjIsMi4zMmEyLDIsMCwwLDEsMi45NSwwbDMuMjEsMy4yMUEyLjIxLDIuMjEsMCwwLDEsNjQsNywyLjIxLDIuMjEsMCwwLDEsNjMuMzYsOC40N1oiIGZpbGw9IiMwMDAiLz48L2c+PC9zdmc+Cg==);

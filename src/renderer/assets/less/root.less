@@ -1,0 +1,49 @@
+// Root ///////////////////////////////////////////////////////////
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+
+  font-family: @bodyfont;
+  font-size: unit((@fontsize / 16), em);
+  line-height: (@lineheight / @fontsize);
+
+  color: @textcolor;
+  background: @rootcolor;
+  -webkit-tap-highlight-color: @highlightcolor;
+  -webkit-font-smoothing: antialiased;
+  -webkit-app-region: drag;
+}
+
+*, :before, :after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+a {
+  color: @linkcolor;
+  transition: color 0.1s, opacity 0.1s;
+
+  &:focus,
+  &:hover {
+    color: darken(@linkcolor, 12);
+  }
+}

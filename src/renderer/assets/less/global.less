@@ -1,0 +1,221 @@
+// Global /////////////////////////////////////////////////////////
+
+[v-if],
+[v-else-if],
+#output span {
+  transition: opacity 0.1s;
+
+  html._loading & {
+    opacity: 0;
+  }
+}
+
+#app {
+  animation: fadein 0.2s ease;
+}
+
+@keyframes fadein {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+// Output ---------------------------------------------------------
+
+#output {
+  display: flex;
+  align-items: center;
+  padding: 23px 20px;
+  background: @controlscolor;
+  box-shadow: inset 0 1px 0 fadeout(white, 75);
+
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+
+  span {
+    letter-spacing: (3/100em);
+    word-break: break-word;
+    outline: 0;
+    transition: opacity 0.1s;
+    -webkit-app-region: no-drag;
+  }
+}
+
+#password {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  font-family: @monofont;
+  font-size: 24px;
+  line-height: (36/24);
+  min-height: (36px * 3);
+  padding: 0 4px;
+}
+
+#controls {
+  flex: none;
+  margin-top: 3px;
+  margin-left: 10px;
+  -webkit-app-region: no-drag;
+  user-select: none;
+
+  button {
+    font-size: 14px;
+    line-height: 36px;
+    vertical-align: bottom;
+  }
+}
+
+#copy {
+  background: @keycolor;
+  color: white;
+  padding: 0;
+  min-width: 72px;
+  margin-left: 4px;
+
+  &:focus,
+  &:hover {
+    background: darken(@keycolor, 12);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background: fadeout(@keycolor, 66);
+  }
+}
+
+#refresh {
+  background: none;
+  padding: 0;
+  width: 36px;
+  opacity: (2/5);
+  transition: opacity 0.2s;
+
+  svg {
+    display: block;
+    fill: @decorcolor;
+    vertical-align: bottom;
+  }
+
+  &:focus,
+  &:hover {
+    opacity: (4/5);
+  }
+}
+
+// Drawer ---------------------------------------------------------
+
+#drawer {
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 24px;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.1s 0.1s;
+
+  &[hidden] {
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+}
+
+#settings {
+  flex: auto;
+
+  label {
+    // cursor: pointer;
+    display: inline-block;
+    margin-right: 2em;
+  }
+
+  label > span {
+    display: block;
+    font-size: 14px;
+    line-height: (32/14);
+    opacity: (3/5);
+  }
+
+  input,
+  select {
+    font-size: 18px;
+    line-height: (36/18);
+  }
+}
+
+input[type=number] {
+  appearance: none;
+  text-align: center;
+  width: auto;
+}
+
+#signature {
+  @padding: 15px;
+
+  flex: none;
+
+  a, abbr {
+    text-decoration: none;
+  }
+
+  a {
+    display: block;
+    font-size: 14px;
+    line-height: (10/14);
+    opacity: (3/5);
+    outline: 0;
+    padding: @padding;
+    margin: 0 (@padding * -2) (@padding * -2) 0;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Toggle ---------------------------------------------------------
+
+#toggle {
+  position: fixed;
+  width: 100%;
+  top: (154px - 6);
+  z-index: 2;
+
+  background: none;
+  width: 100%;
+  height: 16px;
+  line-height: 0;
+
+  span {
+    display: inline-block;
+    background: @rootcolor;
+    padding: 4px 6px;
+    margin: 2px;
+    border-radius: 7px;
+  }
+
+  i {
+    @size: 3px;
+    display: inline-block;
+    background: @decorcolor;
+    width: @size;
+    height: @size;
+    border-radius: @size;
+    vertical-align: bottom;
+    opacity: (1/4);
+    transition: opacity 0.15s;
+
+    &:nth-child(2) {
+      margin: 0 5px;
+    }
+  }
+
+  &:focus i,
+  &:hover i {
+    opacity: (2/4);
+  }
+}
